@@ -2,10 +2,13 @@ import express, { json } from 'express'
 import dotenv from 'dotenv'
 import db_connection from './db.js'
 import Routes from './routes/userRoutes.js'
+import cors from 'cors'
 
 const app = express()
+app.use(cors())
 app.use(express.json())
 app.use('/',Routes)
+app.use(cors())
 
 dotenv.config();
 
